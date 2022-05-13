@@ -4,7 +4,7 @@ public class HashMaps {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//gets the Key for the HashMap
+		//Scanner and user input to get the Key for the HashMap
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter a string: ");
 		String userIn= sc.nextLine( );
@@ -31,4 +31,36 @@ public class HashMaps {
 			 //If the HashMap doesn't have the word, add the word to the HashMap and the Water string
 			if(!wordcount.containsKey(theelement)) {
 				wordcount.put(theelement, 1);
-				Water+= theelement + "0-0";
+				Water+= theelement + "0-0"; 
+			}
+			 //If the HashMap has the word, add 1 to its count value
+			else {
+				int newElementCount = wordcount.get(theelement) + 1;
+				wordcount.put(theelement, newElementCount);
+			}
+		}
+		
+		//Turns Water into an array
+		String[] waterArray = Water.split("0-0");
+
+		//Loops through waterArray and prints each word used and the number of times that word was used
+		for(int i=0;i<waterArray.length;i++) {
+			String waterelement = waterArray[i];
+			int count = wordcount.get(waterelement);
+			System.out.println(waterelement + ": " + count);
+		}
+		
+	/*
+	  
+		//Loops until Every word has been separated and counted 
+		//(A second way to do the same thing, the one above at first printed and counted individual letters)
+
+		for(String key: wordcount.keySet()){
+            int count = wordcount.get(key);
+            System.out.println(key + ": " + count);
+        }
+     
+	*/
+	}
+
+}
