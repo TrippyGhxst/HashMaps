@@ -1,0 +1,34 @@
+import java.util.*;
+public class HashMaps {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//gets the Key for the HashMap
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a string: ");
+		String userIn= sc.nextLine( );
+		
+		//Convert the userInput into lowercase
+		String newInput = userIn.toLowerCase();
+		
+		//Split the userInput into an array
+		String[] testArray= newInput.split(" ");
+		
+		//Going to be used for an array later
+		String Water = "";
+		
+		//Creates the HashMap
+		HashMap<String, Integer> wordcount = new HashMap<String, Integer>();
+		
+		//Sorts the array created from userInput
+		Arrays.sort(testArray);
+		
+		//loops through this array
+		for(int i=0;i<testArray.length;i++) {
+			String theelement = testArray[i];
+			
+			 //If the HashMap doesn't have the word, add the word to the HashMap and the Water string
+			if(!wordcount.containsKey(theelement)) {
+				wordcount.put(theelement, 1);
+				Water+= theelement + "0-0";
